@@ -101,14 +101,59 @@ const data = [
 
   Hint: You will need to use createElement more than once here!
 
-  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
+  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.*/
 
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+ function ArticleMaker (title, date, firstParagraph, secondParagraph, thirdParagraph) {
+    
+      //Step1. create element
+      const article = document.createElement('div');
+      const titles = document.createElement('h2')
+      const dates = document.createElement('p')
+      const para1 = document.createElement('p')
+      const para2 = document.createElement('p')
+      const para3 = document.createElement('p')
+      const button = document.createElement('span')
 
-  Step 3: return the entire component.
+      //Step2. make classes
+      article.classList.add('article')
+      dates.classList.add('date')
+      button.classList.add('expandButton')
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+      //Step3. text content
 
-*/
+      titles.textContent= title;
+      dates.textContent = date;
+      para1.textContent = firstParagraph;
+      para2.textContent = secondParagraph;
+      para3.textContent = thirdParagraph;
+      button.textContent = 'Expand';
+
+      //Step4. event listener
+
+    button.addEventListener('click', () => {
+      article.classList.toggle('article-open')
+    })
+
+    //Step 5. page structure
+
+    article.appendChild(titles);
+    article.appendChild(dates);
+    article.appendChild(para1);
+    article.appendChild(para2);
+    article.appendChild(para3);
+    article.appendChild(button);
+
+    return article;
+
+  }
+
+    //Step6. append to the html
+
+const articles =document.querySelector('.articles');
+data.forEach((element) => {
+  articles.appendChild(ArticleMaker(element.title, element.date, element.firstParagrah, element.secondParagraph, element.thirdParagraph))
+})
+
+
+
