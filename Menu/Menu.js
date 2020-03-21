@@ -19,26 +19,80 @@ let menuItems = [
     </ul>
   </div>
 
-  The function takes an array as its only argument.*/
+  The function takes an array as its only const
+  argument.*/
 
-menu.classList.toggle('menu--open')
-const menu;
-  const menu = document.querySelector('.menu');
-  const menuButton;
-  const menuButton = document.querySelector('.menu-button')
-  menuButton.addEventListener('click', toggleMenu);
+function CreatemenuItems() {
 
-
+  
   //Step 2: Inside this function, iterate over the array creating a list item <li> element for each item in the array. 
   //Add those items to the <ul>
 
+  //element
+
+  const menu = document.createElement ('div');
+  const menuList = document.createElement ('ul');
+  const menuItems2 = document.createElement('li');
+  const menuItems3 = document.createElement('li');
+  const menuItems4 = document.createElement('li');
+  const menuItems5 = document.createElement('li');
+  const menuItems6 = document.createElement('li');
+  const menuItems7 = document.createElement('li');
+
+
+// create classes
+
+menu.classList.add('menu')
+
+//Text content
+// 'Students',
+//   'Faculty',
+//   "What's New",
+//   'Tech Trends',
+//   'Music',
+//   'Log Out'
+
+menuItems2.textContent = menuItems[0]
+menuItems3.textContent = menuItems[1]
+menuItems4.textContent = menuItems[2]
+menuItems5.textContent = menuItems[3]
+menuItems6.textContent = menuItems[4]
+menuItems7.textContent = menuItems[5]
+
+//Select menu-button
+const menuButtons = document.querySelector('.menu-button')
+
+//add Event Listner 
+menuButtons.addEventListener('click',() => {
+  menu.classList.toggle('menu--open')
+})
+  //  Create Structure
+menu.appendChild(menuList)
+menuList.appendChild(menuItems2)
+menuList.appendChild(menuItems3)
+menuList.appendChild(menuItems4)
+menuList.appendChild(menuItems5)
+menuList.appendChild(menuItems6)
+menuList.appendChild(menuItems7)
+
+return menu;
+
+}
+
+  //Append to the HTML
+
+  const menus = document.querySelector('.header')
+  menuItems.forEach((items) => {
+    menus.appendChild(CreatemenuItems(items.menuList, items.menuItems2, items.menuItems3, items.menuItems4, items.menuItems5, items.menuItems6, items.menuItems7))
+
+  })
+
+
+
+
+ 
   
-  //Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
 
-  // Step 4: add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on the menu (your div with a 'menu' class).
 
-  // Step 5: return the menu component.
-
-  // Step 6: add the menu component to the DOM.
   
-
+  
