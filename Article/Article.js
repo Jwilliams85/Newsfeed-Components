@@ -113,11 +113,14 @@ const data = [
       const para2 = document.createElement('p')
       const para3 = document.createElement('p')
       const button = document.createElement('span')
+      const closeBtn = document.createElement('span')
+      
 
       //Step2. make classes
       article.classList.add('article')
       dates.classList.add('date')
       button.classList.add('expandButton')
+      closeBtn.classList.add('close')
 
 
       //Step3. text content
@@ -128,6 +131,8 @@ const data = [
       para2.textContent = secondParagraph;
       para3.textContent = thirdParagraph;
       button.textContent = 'Expand';
+      const close = 'x';
+      closeBtn.textContent = close;
 
       //Step4. event listener
 
@@ -135,6 +140,10 @@ const data = [
       article.classList.toggle('article-open')
     })
 
+     closeBtn.addEventListener('click', () => {
+       article.style.display='none'
+     } )
+     
     //Step 5. page structure
 
     article.appendChild(titles);
@@ -143,6 +152,7 @@ const data = [
     article.appendChild(para2);
     article.appendChild(para3);
     article.appendChild(button);
+    article.appendChild(closeBtn)
 
     return article;
 
