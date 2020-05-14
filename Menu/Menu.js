@@ -66,6 +66,7 @@ const menuButtons = document.querySelector('.menu-button')
 menuButtons.addEventListener('click',() => {
   menu.classList.toggle('menu--open')
   menuButtons.style.transform = "scale(1.5)";
+
 })
   //  Create Structure
 menu.appendChild(menuList)
